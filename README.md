@@ -73,6 +73,8 @@ Docker سبک‌تر، سریع‌تر و برای توسعه و دیپلوی م
 sudo dnf update
 ```
 
+![Preview](https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2025/06/alma-docker-install-01-1024x211.jpg)
+
 ---
 
 ## 2️⃣ مرحله 2: اضافه کردن مخزن رسمی Docker
@@ -85,6 +87,7 @@ sudo dnf config-manager --add-repo https://download.docker.com/linux/centos/dock
 
 > توجه: AlmaLinux با CentOS سازگاری دارد و از همان مخزن استفاده می‌کند.
 
+![Preview](https://linuxiac.com/wp-content/uploads/2025/06/alma-docker-install-02.jpg)
 ---
 
 ## 3️⃣ مرحله 3: دوباره بروز کردن لیست بسته‌ها
@@ -94,14 +97,19 @@ sudo dnf config-manager --add-repo https://download.docker.com/linux/centos/dock
 sudo dnf update
 ```
 
+![Preview](https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2025/06/alma-docker-install-03.jpg)
+
 ---
 ## 4️⃣ مرحله 4: نصب Docker و ابزارهای جانبی
 
 حالا Docker و اجزای لازمش را نصب کن:
----
 ```bash
 sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
+
+![Preview](https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2025/07/alma-docker-install-05-1024x583.jpg)
+![Preview](https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2025/07/alma-docker-install-07-1024x238.jpg)
+
 
 ## 5️⃣ مرحله 5: فعال‌سازی و شروع سرویس Docker
 
@@ -109,10 +117,16 @@ sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 ```bash
 sudo systemctl enable --now docker
 ```
+
+![Preview](https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2025/07/alma-docker-install-08-1024x112.jpg)
+
 برای بررسی وضعیت سرویس هم می‌توانی از این دستور استفاده کنی:
 ```bash
 sudo systemctl status docker
 ```
+
+![Preview](https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2025/07/alma-docker-install-09-1024x553.jpg)
+
 ---
 ## 6️⃣ مرحله : تست اینکه Docker درست نصب شده
 
@@ -120,16 +134,23 @@ sudo systemctl status docker
 ```bash
 sudo docker run hello-world
 ```
+
+![Preview](https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2025/07/alma-docker-install-11-1024x738.jpg)
+
 ---
 
 ## 7️⃣ مرحله 7: اجرای کاربر بدون sudo (اختیاری و توصیه‌شده)
 
-به‌صورت پیش‌فرض فقط کاربر root (یا با sudo) می‌تواند دستورهای Docker را اجرا کند. اگر می‌خوای کاربر معمولی هم بدون sudo از Docker استفاده کند:
+![Preview](https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2025/07/alma-docker-install-12-1024x140.jpg)
 
+به‌صورت پیش‌فرض فقط کاربر root (یا با sudo) می‌تواند دستورهای Docker را اجرا کند. اگر می‌خوای کاربر معمولی هم بدون sudo از Docker استفاده کند:
 ```bash
 sudo usermod -aG docker $USER
 newgrp docker
 ```
+
+![Preview](https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2025/07/alma-docker-install-13.jpg)
+
 ---
 
 ## 🚀 تست Docker: اجرای یک کانتینر نمونه (Ubuntu)
@@ -177,7 +198,6 @@ docker run ubuntu ls /
 
 ## 📌 اجرای یک کانتینر Nginx
 
-اگر در کانتینر Alpine هستید:
 
 ```bash
 docker run -d -p 8080:80 --name mynginx nginx
@@ -195,7 +215,7 @@ docker run -d -p 8080:80 --name mynginx nginx
 
 ### **-p 8080:80**
 
-نگاشت پورت‌ها:
+پورت‌ها:
 
 * **80**: پورت داخلی کانتینر که Nginx روی آن اجرا می‌شود.
 * **8080**: پورت میزبان برای دسترسی از مرورگر.
@@ -203,7 +223,7 @@ docker run -d -p 8080:80 --name mynginx nginx
 نتیجه: باز کردن آدرس زیر سرویس Nginx را نمایش می‌دهد:
 
 ```
-http://localhost:8080
+http://localhost:8080 / http://ip:9000
 ```
 
 ### **--name mynginx**
@@ -265,7 +285,8 @@ http://localhost:9000 / http://ip:9000
 
 * Docker را روی AlmaLinux 10 نصب کنید
 * سرویس Docker را اجرا و فعال کنید
-* یک کانتینر سبک اجرا کنید
-* داخل کانتینر بازی ترمینالی اجرا کنید
+* یک کانتینر ابونتو اجرا کنید
+* * یک کانتینر وب سرور اجرا کنید
+* داخل کانتینر پنل مدیریت داکر اجرا کنید
 
 ---
